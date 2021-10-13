@@ -35,7 +35,7 @@ function draw() {
 	}
 
 	if(mySummary != undefined) {
-		text(mySummary, 50, 50);
+		text(mySummary, 50, 50, 400, 400); //(mySummary,xPosition, yPosition, xBound, yBound)
 		}
 
 }
