@@ -1,5 +1,6 @@
 
 let myImage;
+let mySummary;
 
 let data = fetch("https://ghibliapi.herokuapp.com/films")
 	.then(response =>  { 	
@@ -9,8 +10,14 @@ let data = fetch("https://ghibliapi.herokuapp.com/films")
 	.then(result => {
 		console.log(result)
 
-		myImage = loadImage(result[Math.floor(random(0, result.length))].image);
+		let pickedMovie =
+		result[Math.floor(random(result.length-1))];
+
+		myImage = loadImage(pickedMovie.image);
 		console.log(myImage);
+
+		mySummary = pickedMovie.description
+		console.log(mySummary);
 
 		return result
 	});
@@ -26,5 +33,9 @@ function draw() {
 	if(myImage != undefined) {
 		image(myImage,0, 0);
 	}
+
+	if(mySummary != undefined) {
+		text(mySummary, 50, 50);
+		}
 
 }
